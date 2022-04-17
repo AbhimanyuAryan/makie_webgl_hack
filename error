@@ -1,0 +1,54 @@
+julia> include("makie_webgl_hack/geoweb.jl")
+Error showing value of type Figure:
+ERROR: IOError: listen: address already in use (EADDRINUSE)
+Stacktrace:
+  [1] uv_error
+    @ ./libuv.jl:97 [inlined]
+  [2] #listen#13
+    @ /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/Sockets/src/Sockets.jl:632 [inlined]
+  [3] #listen#10
+    @ /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/Sockets/src/Sockets.jl:625 [inlined]
+  [4] listen
+    @ /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/Sockets/src/Sockets.jl:623 [inlined]
+  [5] start(application::JSServe.Server; verbose::Bool)
+    @ JSServe ~/.julia/packages/JSServe/TFStV/src/server.jl:296
+  [6] JSServe.Server(app::JSServe.App, url::String, port::Int64; verbose::Bool, routes::JSServe.Routes, websocket_routes::JSServe.Routes)
+    @ JSServe ~/.julia/packages/JSServe/TFStV/src/server.jl:232
+  [7] get_server()
+    @ JSServe ~/.julia/packages/JSServe/TFStV/src/server.jl:311
+  [8] display(#unused#::JSServe.BrowserDisplay, dom::JSServe.App)
+    @ JSServe ~/.julia/packages/JSServe/TFStV/src/browser_display.jl:51
+  [9] display(x::Any)
+    @ Base.Multimedia ./multimedia.jl:328
+ [10] backend_display
+    @ ~/.julia/packages/WGLMakie/RxHQd/src/display.jl:83 [inlined]
+ [11] display(scene::Scene)
+    @ Makie ~/.julia/packages/Makie/lgPZh/src/display.jl:59
+ [12] #display#915
+    @ ~/.julia/packages/Makie/lgPZh/src/display.jl:53 [inlined]
+ [13] display(fig::Figure)
+    @ Makie ~/.julia/packages/Makie/lgPZh/src/display.jl:53
+ [14] #invokelatest#2
+    @ ./essentials.jl:708 [inlined]
+ [15] invokelatest
+    @ ./essentials.jl:706 [inlined]
+ [16] print_response(errio::IO, response::Any, show_value::Bool, have_color::Bool, specialdisplay::Union{Nothing, AbstractDisplay})
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:247
+ [17] (::REPL.var"#40#41"{REPL.LineEditREPL, Pair{Any, Bool}, Bool, Bool})(io::Any)
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:231
+ [18] with_repl_linfo(f::Any, repl::REPL.LineEditREPL)
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:462
+ [19] print_response(repl::REPL.AbstractREPL, response::Any, show_value::Bool, have_color::Bool)
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:229
+ [20] (::REPL.var"#do_respond#61"{Bool, Bool, REPL.var"#72#82"{REPL.LineEditREPL, REPL.REPLHistoryProvider}, REPL.LineEditREPL, REPL.LineEdit.Prompt})(s::REPL.LineEdit.MIState, buf::Any, ok::Bool)
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:798
+ [21] #invokelatest#2
+    @ ./essentials.jl:708 [inlined]
+ [22] invokelatest
+    @ ./essentials.jl:706 [inlined]
+ [23] run_interface(terminal::REPL.Terminals.TextTerminal, m::REPL.LineEdit.ModalInterface, s::REPL.LineEdit.MIState)
+    @ REPL.LineEdit /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/LineEdit.jl:2441
+ [24] run_frontend(repl::REPL.LineEditREPL, backend::REPL.REPLBackendRef)
+    @ REPL /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.6/REPL/src/REPL.jl:1126
+ [25] (::REPL.var"#44#49"{REPL.LineEditREPL, REPL.REPLBackendRef})()
+    @ REPL ./task.jl:411
